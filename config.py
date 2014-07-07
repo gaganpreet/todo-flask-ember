@@ -3,7 +3,7 @@
 class Config(object):
     DEBUG = False
     TESTING = False
-    DATABASE_URI = 'sqlite:///test.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///todo.db'
 
 class Production(Config):
     pass
