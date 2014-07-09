@@ -23,19 +23,19 @@ body {
     margin-left: 2em;
 }
 .editTodo {
-    line-height: 1em;
-    margin-left: 5em;
+    line-height: 3em;
+    width: 100%;
 }
 .completed {
     color: #aaa;
     text-decoration: line-through;
 }
-.remove {
+.edit {
     display: none;
     float: right;
     margin-right: 2em;
 }
-li:hover .remove {
+li:hover .edit {
     display: block;
 }
 .util {

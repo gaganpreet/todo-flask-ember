@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="todo/css/todos.css"></link>
+  <noscript><h2 class="text-center">You need Javascript enabled to use this page</h2></noscript>
 </head>
 <body>
   <script type="text/x-handlebars">
@@ -44,7 +45,7 @@
             <label {{bind-attr class="isCompleted:completed"}}>
               {{ input type="checkbox" class="toggle" checked=isCompleted }}{{description}}
             </label>
-            <span class="remove">
+            <span class="edit">
               <button type="button" class="btn btn-link" {{action "editTodo" }}>
                 <span>Edit</span>
               </button>
@@ -59,7 +60,7 @@
     <hr>
     
     <div>
-      <span>{{ todosLeft.length  }} tasks left</span>
+      <span>{{ todosLeft.length  }} items left</span>
       <span class="util">
         <button type="button" class="btn btn-link" {{action "markAllTodosComplete" }}>Mark all completed</span>
       </span>
