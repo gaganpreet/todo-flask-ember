@@ -21,10 +21,8 @@ class Todo(db.Model):
     def __repr__(self):
         return '<{0}>'.format(self.description)
 
-    def as_dict(self):
+    def as_json(self):
         return {'id': self.id,
                 'description': self.description,
-                'is_completed': self.is_completed,
-                'added_on': self.added_on.strftime('%s'),
-                'last_update': self.last_update.strftime('%s')
-                }
+                'isCompleted': self.is_completed,
+                'lastUpdate': self.last_update.strftime('%s')}
