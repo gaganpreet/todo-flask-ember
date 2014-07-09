@@ -1,6 +1,7 @@
 #!/usr/bin/python
 '''Flask app runner for production'''
 
+import os
 from main import create_app
 
 app = create_app()
