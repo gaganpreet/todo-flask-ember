@@ -41,10 +41,13 @@
           {{#if isEditing}}
             {{ input type="text" focus-out="finishedEditing" escape-press="cancelEditing" value=description insert-newline="finishedEditing" value=description class="editTodo" }}
           {{else}}
-            <label {{action "editTodo" on="doubleClick"}} {{bind-attr class="isCompleted:completed"}}>
+            <label {{bind-attr class="isCompleted:completed"}}>
               {{ input type="checkbox" class="toggle" checked=isCompleted }}{{description}}
             </label>
             <span class="remove">
+              <button type="button" class="btn btn-link" {{action "deleteTodo" }}>
+                <span {{action "editTodo"}}>Edit</span>
+              </button>
               <button type="button" class="btn btn-link" {{action "deleteTodo" }}>
                 <span class="glyphicon glyphicon-remove"></span>
               </button>
