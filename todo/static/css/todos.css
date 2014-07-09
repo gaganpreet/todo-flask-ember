@@ -1,0 +1,43 @@
+body {
+    background: #f5f5f5;
+}
+.todo-section {
+    margin: 2em;
+}
+#description {
+    width: 80%;
+}
+.todo-list {
+    margin-top: 2em;
+}
+.todo-list li {
+    line-height: 3em;
+}
+.todo-list li:nth-of-type(odd) {
+    background: #f4f7fa;
+}
+.todo-list li label input {
+    margin-right: 2em;
+}
+.todo-list li label {
+    margin-left: 2em;
+}
+.editTodo {
+    line-height: 1em;
+    margin-left: 5em;
+}
+.completed {
+    color: #aaa;
+    text-decoration: line-through;
+}
+.remove {
+    display: none;
+    float: right;
+    margin-right: 2em;
+}
+li:hover .remove {
+    display: block;
+}
+.util {
+    float: right;
+}

@@ -2,30 +2,72 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ember Starter Kit</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Let's get stuff done</title>
+  <link rel="stylesheet" href="todo/css/normalize.css">
+  <link rel="stylesheet" href="todo/css/style.css">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="todo/css/todos.css"></style>
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
+    <div class="container">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+          <h1 class="text-center">
+            <strong>Todos</strong>
+          </h1>
+          <hr>
 
-    {{outlet}}
+          <div class="todo-section">
+            {{outlet}}
+          </div>
+        </div>
+      </div>
+    </div>
   </script>
 
-  <script type="text/x-handlebars" id="index">
-    <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
-    {{/each}}
+  <script type="text/x-handlebars" id="todos">
+    <form role="form" class="form-inline text-center">
+        {{ input type="text" class="form-control" value=description id="description" placeholder="What do you want to do today?" }}
+        <button type="submit" {{ action "addTodo" }} class="btn btn-default">Add Todo</button>
+    </form>
+
+    <ul class="list-unstyled todo-list">
+      {{#each this itemController="todo"}}
+        <li>
+          {{#if isEditing}}
+            {{ input type="text" focus-out="finishedEditing" escape-press="cancelEditing" value=description insert-newline="finishedEditing" value=description class="editTodo" }}
+          {{else}}
+            <label {{action "editTodo" on="doubleClick"}} {{bind-attr class="isCompleted:completed"}}>
+              {{ input type="checkbox" class="toggle" checked=isCompleted }}{{description}}
+            </label>
+            <span class="remove">
+              <button type="button" class="btn btn-link" {{action "deleteTodo" }}>
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+            </span>
+          {{/if}}
+        </li>
+      {{/each}}
     </ul>
+    <hr>
+    
+    <div>
+      <span>{{ todosLeft.length  }} tasks left</span>
+      <span class="util">
+        <button type="button" class="btn btn-link" {{action "markAllTodosComplete" }}>Mark all completed</span>
+      </span>
+    </div>
   </script>
 
-  <script src="js/libs/jquery-1.10.2.js"></script>
-  <script src="js/libs/handlebars-1.1.2.js"></script>
-  <script src="js/libs/ember-1.5.1.js"></script>
-  <script src="js/app.js"></script>
-  <!-- to activate the test runner, add the "?test" query string parameter -->
-  <script src="tests/runner.js"></script>
+  <script src="todo/js/libs/jquery-1.10.2.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="todo/js/libs/handlebars-1.1.2.js"></script>
+  <script src="todo/js/libs/ember-1.5.1.js"></script>
+  <script src="todo/js/libs/ember-data.js"></script>
+  <script src="todo/js/app.js"></script>
 </body>
 </html>
