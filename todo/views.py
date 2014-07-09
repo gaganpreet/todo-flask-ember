@@ -7,4 +7,4 @@ root_app = Blueprint('root_app', __name__,
 
 @root_app.route('/')
 def home():
-    return send_file('todo/templates/index.html')
+    return send_file('todo/templates/index.html', cache_timeout=600)
