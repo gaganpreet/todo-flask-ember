@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="todo/css/todos.css"></link>
+  <link rel="stylesheet" href="todo/css/todos.css">
   <noscript><h2 class="text-center">You need Javascript enabled to use this page</h2></noscript>
 </head>
 <body>
@@ -32,24 +32,24 @@
 
   <script type="text/x-handlebars" id="todos">
     <form role="form" class="form-inline text-center">
-        {{ input type="text" class="form-control" value=description id="description" placeholder="What do you want to do today?" }}
-        <button type="submit" {{ action "addTodo" }} class="btn btn-default">Add Todo</button>
+        {{input type="text" class="form-control" value=description id="description" placeholder="What do you want to do today?"}}
+        <button type="submit" {{action "addTodo"}} class="btn btn-default">Add Todo</button>
     </form>
 
     <ul class="list-unstyled todo-list">
       {{#each this itemController="todo"}}
         <li>
           {{#if isEditing}}
-            {{ input type="text" focus-out="finishedEditing" escape-press="cancelEditing" value=description insert-newline="finishedEditing" value=description class="editTodo" }}
+            {{input type="text" focus-out="finishedEditing" escape-press="cancelEditing" value=description insert-newline="finishedEditing" value=description class="editTodo"}}
           {{else}}
             <label {{bind-attr class="isCompleted:completed"}}>
-              {{ input type="checkbox" class="toggle" checked=isCompleted }}{{description}}
+              {{input type="checkbox" class="toggle" checked=isCompleted}}{{description}}
             </label>
             <span class="edit">
-              <button type="button" class="btn btn-link" {{action "editTodo" }}>
+              <button type="button" class="btn btn-link" {{action "editTodo"}}>
                 <span>Edit</span>
               </button>
-              <button type="button" class="btn btn-link" {{action "deleteTodo" }}>
+              <button type="button" class="btn btn-link" {{action "deleteTodo"}}>
                 <span class="glyphicon glyphicon-remove"></span>
               </button>
             </span>
@@ -60,9 +60,9 @@
     <hr>
     
     <div>
-      <span>{{ todosLeft.length  }} items left</span>
+      <span>{{todosLeft.length}} items left</span>
       <span class="util">
-        <button type="button" class="btn btn-link" {{action "markAllTodosComplete" }}>Mark all completed</span>
+        <button type="button" class="btn btn-link" {{action "markAllTodosComplete"}}>Mark all completed</span>
       </span>
     </div>
   </script>
