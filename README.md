@@ -11,7 +11,7 @@ The project is divided in two Flask modules:
 
 Install the dependencices using pip:
 
-    pip install requirements.txt
+    pip install -r requirements.txt
 
 ## Run
 
